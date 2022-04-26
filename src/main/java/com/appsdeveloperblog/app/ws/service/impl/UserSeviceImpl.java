@@ -20,11 +20,10 @@ public class UserSeviceImpl implements UserService {
 	public UserDto createUser(UserDto user) {
 		UserEntity userEntity = new UserEntity();
 		BeanUtils.copyProperties(user, userEntity);
-		
+
 		userEntity.setEncryptedPassword("test");
 		userEntity.setUserId("testUserId");
 		
-		System.out.print(userEntity);
 		UserEntity storedUserDetails = userRepository.save(userEntity);
 		
 		UserDto returnValue = new UserDto();
