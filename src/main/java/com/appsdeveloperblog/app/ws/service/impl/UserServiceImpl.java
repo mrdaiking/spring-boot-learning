@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 
 @Service
-public class UserSeviceImpl implements UserService {
+public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	UserRepository userRepository;
@@ -39,8 +39,8 @@ public class UserSeviceImpl implements UserService {
 
 		String publicUserId = utils.generateUserId(30);
 
-		userEntity.setEncryptedPassword(publicUserId);
-		userEntity.setUserId(bCryptPasswordEncoder.encode(user.getPassword()));
+		userEntity.setUserId(publicUserId);
+		userEntity.setEncryptedPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		
 		UserEntity storedUserDetails = userRepository.save(userEntity);
 		
