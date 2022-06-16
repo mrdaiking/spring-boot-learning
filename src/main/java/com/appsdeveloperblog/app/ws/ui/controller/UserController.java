@@ -44,7 +44,7 @@ public class UserController {
 	{
 		UserRest returnValue = new UserRest(); //Define return object
 
-		if (userDetails.getFirstName().isEmpty()) throw new UserServiceException(ErrorMessages.MISSING_REQUIRED_FIELD.getErrorMessage());
+		if (userDetails.getFirstName().isEmpty()) throw new NullPointerException(ErrorMessages.MISSING_REQUIRED_FIELD.getErrorMessage());
 		UserDto userDto = new UserDto(); //Define transfer object
 		BeanUtils.copyProperties(userDetails, userDto); //Mapping receive object to transfer object
 		UserDto createdUser = userService.createUser(userDto);
