@@ -1,13 +1,23 @@
 package com.appsdeveloperblog.app.ws.ui.model.request;
 
+import java.util.List;
+
 public class UserDetailsRequestModel {
 
 	private String firstName;
 	private String lastName;
 	private String email;
 	private String password;
-	
-	
+	private List<AddressRequestModel> address;
+
+	public List<AddressRequestModel> getAddress() {
+		return address;
+	}
+
+	public void setAddress(List<AddressRequestModel> address) {
+		this.address = address;
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}
